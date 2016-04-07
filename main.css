@@ -1,80 +1,239 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>zcrecord</title>
-	<meta charset='utf-8'/>
-	<link rel='stylesheet' href='normalize.css' />
-	<link rel='stylesheet' href='main.css' />
-</head>
+/****************************************
 
-<body>
-	<header class='hero'>
-		<div class='container'>
-		<p class='logo'>zcrecord</p>
-	    </div>
-	</header>
-	<main class='content'>
-		<div class='container'>    <!--really important to understand how to use <div> here*/ -->
-            
-         <header class='sub-header'>
-             <h1>stage01</h1>
-             <p>just practicing <a class='js-add-link' href='#'>Add a story now!</a></p>
-             <form class='form js-form'>
-                  <label class='form-label' for='form-link-input'>Add a story: </label>
-                  <input class='form-input' type='text' id='form-link-input' />
-             </form>
-         </header> 
-            
-            <div class='modal js-modal'>
-                <div class='modal-media'>
-                    <img src='https://fastly.kastatic.org/images/avatars/svg/robot_male_3.svg' alt='avatar of Charlie at khan academy'/>
-                    <h3 class='modal-media-title'>Charlie</h3>
-                </div>
-                <div class='modal-content'>
-                    <h3>About me</h3>
-                    <p>I am a newbie in the field of frontend design. Currently, i live in Shanghai, CN.</p>
-                    
-                    <ol class='news'>
-                        <li class='news-item'>
-                            <a class='news-link' href="#">design</a>
-                        </li>
-                        <li class='news-item'>
-                            <a class='news-link' href="#">JS modules: A beginner's guide</a>
-                        </li>
-                    </ol>
-                </div>
-            </div>
-            <div class='modal-overlay js-modal-overlay'></div>
-            
-		<ol class='news'>
-			<li class='news-item'>
-				<a class='news-link' href="#">a</a>
-				<ul class='news-meta'>
-					<li class='news-meta-item'>	
-						<em>Posted by: </em>
-						<a class='js-show-modal' href='#'>Charlie</a>
-					</li>
-					<li class='news-meta-item'>
-						<a href='#'>2 comments</a>
-					</li>	
-					<li class='news-meta-item'>
-						<a class='js-like' href='#'>like this story</a>
-					</li>
-				</ul>
-			</li>
-			<li class='news-item'>
-				<a class='news-link' href="#">b</a>
-			</li>
-			<li class='news-item'>
-				<a class='news-link' href="#">c</a>
-			</li>
-			<li class='news-item'>
-				<a class='news-link' href="#">d</a>
-			</li>
-		</ol>
-		</div>
-	</main>
-    <script src="http://code.jquery.com/jquery-2.2.2.min.js"></script>
-    <script src='app.js'></script>
-</body>
-</html>
+*
+*       indigo      : #3f515b
+*       indigo(dark): #303f9f
+*
+*       learn-from-code-school
+*
+*
+
+*****************************************/
+
+/****************************************
+
+* base
+
+*****************************************/
+
+body {
+
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin-top:0;
+    margin-bottom: 5px;
+
+}
+ol, ul {      /* add ul to change the margin before "Posted by" */
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+li {
+
+}
+
+p {
+
+}
+a {
+	color: #ff4081;
+}
+a:active,
+a:hover,
+a:focus {
+	color: #212121;
+    transition: 0.2s ease-in-out;
+}
+
+/****************************************
+
+* hero
+
+*****************************************/
+.hero {
+	background-color: #3f51b5;
+	color: #fff;
+	margin-bottom: 20px;
+ 	padding: 20px 0;
+	text-align: center;
+}
+/****************************************
+
+* logo
+
+*****************************************/
+.logo {
+	font-size: 34px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+
+/****************************************
+
+* news
+
+*****************************************/
+.news-item {
+	border-bottom: 1px solid #b6b6b6;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+}
+.news-item:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.news-link {
+	color: #3f51b5;
+	font-size: 24px;
+	display: block; /* link's default display tyle is inline, so you have to use block to make margin-bottom tag useful*/
+	margin-bottom: 10px;
+}
+.news-meta-item {
+	display: inline;
+	margin-right: 10px;
+
+}
+
+
+/****************************************
+
+* content
+
+*****************************************/
+.content {
+    margin-bottom: 40px;
+}
+
+
+/****************************************
+
+* container
+
+*****************************************/
+.container {
+	margin: 0 auto;
+	max-width: 800px;    /*use max-width*/
+}
+
+/****************************************
+
+* states
+
+*****************************************/
+.is-liked {
+    animation: flash 2s;
+}
+
+
+/****************************************
+
+* form
+
+*****************************************/
+.form {
+    height: 0;
+    margin-bottom: 20px;
+    visibility: hidden;
+    opacity: 0;
+     /*transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out; */  /* question01  below   comparison  */
+}
+.form.is-visible {                                          /*.form.is-visible*/
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+   
+}
+.form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    
+}
+.form-input {
+    border: 1px solid #b6b6b6;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 20px;
+    width: 100%;   
+}
+
+/****************************************
+
+* modal
+
+*****************************************/
+.modal {
+    background-color: #fff;
+    position: absolute;
+    /*margin-left: -306px;*/           /*same as left&transform below does*/
+    border-radius: 4px;
+    /*border-bottom-left-radius: 4px;*/
+    box-shadow: 0 2px 6px rgba(0,0,0,0.55);
+    z-index:2;
+    opacity: 0;
+    visibility: hidden;
+    top: 40px;
+    transition: 0.4s ease-in-out;
+    left: 50%;
+    transform: translate(-50%,5%);        /* fade in & out */ 
+    width: 612px;
+}
+.modal.is-visible {
+    opacity: 1;
+    transform: translate(-50%,0);         /* fade in & out */
+    visibility: visible;
+}
+.modal-media {
+    position: relative;
+}
+.modal-media-title {
+    bottom: 20px;
+    left: 20px;
+    font-size: 30px;
+    color: #fff;
+    position: absolute;
+}
+.modal-content {
+    padding: 20px;
+}
+.modal-overlay {
+    background-color: #212121;
+    height: 100%;
+    top:0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.3;
+    right: 0;
+    opacity: 0;
+    transition: 0.4s ease-in-out;   /* fade in & out */
+    visibility: hidden;
+    position: fixed; /*relative to the brower window*/
+    width:100%;
+    z-index:1;
+}
+.modal-overlay.is-visible {
+    opacity: 0.4;
+    visibility: visible;
+}
+
+/****************************************
+
+* animation
+
+*****************************************/
+@keyframes flash {
+    from, 50%, to {          /* do not forget the comma */
+        opacity: 0;
+    }
+    25%, 75% {               /* do not forget the comma */
+        opacity: 1;
+    }
+}
