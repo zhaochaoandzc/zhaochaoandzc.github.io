@@ -47,12 +47,9 @@ a:focus {
 	color: #212121;
     transition: 0.2s ease-in-out;
 }
-<<<<<<< HEAD
 footer {
     text-align: center;
 }
-=======
->>>>>>> 02ccf6d7e30604d62431ea6c1feb457b3ee10fbd
 
 /****************************************
 
@@ -188,11 +185,8 @@ footer {
     visibility: hidden;
     top: 40px;
     transition: 0.4s ease-in-out;
-<<<<<<< HEAD
     left: 50%;                            /* related to transform below & margin-left above */
-=======
     left: 50%;
->>>>>>> 02ccf6d7e30604d62431ea6c1feb457b3ee10fbd
     transform: translate(-50%,5%);        /* fade in & out */ 
     width: 612px;
 }
@@ -246,8 +240,3 @@ footer {
     25%, 75% {               /* do not forget the comma */
         opacity: 1;
     }
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> 02ccf6d7e30604d62431ea6c1feb457b3ee10fbd
